@@ -3,10 +3,12 @@ from django.views.decorators.http import require_POST
 from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
-
+from django.db import models
+from django.contrib.auth.models import User
 
 @require_POST
 def cart_add(request, product_id):
+    user=User
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     form = CartAddProductForm(request.POST)

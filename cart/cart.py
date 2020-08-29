@@ -1,9 +1,13 @@
 from decimal import Decimal
 from django.conf import settings
 from shop.models import Product
+from django.conf import settings
+from django.db import models
 
 
 class Cart(object):
+
+    #user=models.ForeignKey(settings.AUTH_USER_MODEL,blank=True, null=True,on_delete= models.SET_NULL)
 
     def __init__(self, request):
         """
